@@ -31,7 +31,6 @@
 
 <script>
 import ThemeSwitch from "@/components/ThemeSwitch";
-import { auth } from "@/main";
 
 export default {
   name: "Request",
@@ -56,8 +55,7 @@ export default {
       let slackURL = new URL("https://slack.com/api/chat.postMessage");
 
       const data = {
-        token:
-          "xoxp-564537625344-564537625552-566357266455-226b4da5674d7bebc70ffd888e81a266",
+        token: process.env.SLACK_API_TOKEN,
         channel: "hq",
         text: `${email} has requested admin access to HQ. Please go to Netlify to invite them.`
       };
