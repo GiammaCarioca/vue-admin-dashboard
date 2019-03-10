@@ -19,7 +19,7 @@ export default {
   },
   mounted() {
     const isDarkMode = this.$store.getters.isDarkMode;
-    document.body.style.background = isDarkMode ? "#212c4f" : "#f0f3f5";
+    document.body.style.background = isDarkMode ? "#212c4f" : "#f8f9fa";
   }
 };
 </script>
@@ -29,29 +29,24 @@ export default {
   transition: 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
-body {
-  margin: 0;
-  background: $dark-blue;
-}
-
-h1 {
-  @include heading-1;
-}
-
-p {
-  @include large-text-bold($purple);
-}
-
-line,
-text {
-  opacity: 0.2;
-}
-
 #app {
   font-family: $system-font-family;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: $white;
+}
+
+body {
+  margin: 0;
+  background: $dark-blue;
+}
+
+h1.dark {
+  @include heading-3($black);
+}
+
+h1.light {
+  @include heading-3($white);
 }
 
 h4 {
@@ -60,6 +55,14 @@ h4 {
   font-size: 24px;
   text-align: center;
   color: #ffffff;
+}
+
+p {
+  @include large-text-bold($purple);
+}
+line,
+text {
+  opacity: 0.2;
 }
 
 input {
@@ -76,6 +79,12 @@ input {
 
   &::placeholder {
     color: rgba(255, 255, 255, 0.3);
+  }
+
+  &:focus {
+    border: 1px solid $blue;
+    box-shadow: 0 0 0 1px $blue;
+    outline: none;
   }
 }
 
@@ -101,7 +110,7 @@ a {
 
 /* THEME */
 .light-background {
-  background-color: $light-gray;
+  background-color: #f8f9fa;
 
   line,
   text {
@@ -158,8 +167,9 @@ a {
   background: rgba(255, 255, 255, 0.1);
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
+
 .dark-box {
-  background: rgba(0, 0, 0, 0.1);
+  background: #c6d0eb40;
   border: 1px solid rgba(0, 0, 0, 0.1);
 }
 </style>

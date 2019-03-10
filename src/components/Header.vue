@@ -54,10 +54,12 @@ export default {
 
 <style scoped lang="scss">
 .nav-light {
-  background: $white;
+  background: #f0f3f5;
+  box-shadow: 1px 3px 20px 4px #c6d0eb59;
 }
 .nav-dark {
   background: $super-dark-blue;
+  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
 }
 
 #nav {
@@ -68,6 +70,7 @@ export default {
   box-sizing: border-box;
   width: 100%;
   padding: 15px 15%;
+
   a {
     font-weight: bold;
     color: $dark-gray;
@@ -78,18 +81,26 @@ export default {
       color: $middle-blue;
     }
   }
-  .nav-1 {
-    display: flex;
-    align-items: center;
 
-    a {
-      margin-left: 20px;
-      margin-right: 20px;
+  a,
+  img {
+    &:hover {
+      cursor: pointer;
     }
+  }
+}
 
-    img {
-      margin-right: 20px;
-    }
+.nav-1 {
+  display: flex;
+  align-items: center;
+
+  a {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+
+  img {
+    margin-right: 20px;
   }
 }
 </style>

@@ -15,30 +15,56 @@
           <div ref="months" class="months" @click="toggleMonths">Months</div>
         </div>
       </div>
+
       <apexchart
+        class="chart1"
         width="100%"
+        height="500px"
         type="area"
         :options="chartOptions"
         :series="series"
       ></apexchart>
-      <iframe
-        v-if="isDarkMode"
-        width="100%"
-        height="450"
-        src="https://datastudio.google.com/embed/reporting/16BtZk2BI5KZ9gsh1dkJT9HfvfVLlWqfS/page/Qrej"
-        frameborder="0"
-        style="border:0"
-        allowfullscreen
-      ></iframe>
-      <iframe
-        v-if="!isDarkMode"
-        width="100%"
-        height="450"
-        src="https://datastudio.google.com/embed/reporting/1_NtvlMj1zAjCRZnGMwoWEnttVvJb8Sgv/page/Qrej"
-        frameborder="0"
-        style="border:0"
-        allowfullscreen
-      ></iframe>
+      <div class="gchart-container">
+        <iframe
+          v-if="!isDarkMode"
+          width="600"
+          height="450"
+          src="https://datastudio.google.com/embed/reporting/10dPbyKycKf2EmMRSg9mse0nGX4kjqUpe/page/AbTf"
+          frameborder="0"
+          style="border:0"
+          allowfullscreen
+        ></iframe>
+
+        <iframe
+          v-if="isDarkMode"
+          width="600"
+          height="450"
+          src="https://datastudio.google.com/embed/reporting/1Ef0GvClANil2gofuOkNVz2d0aLh9RRQO/page/AbTf"
+          frameborder="0"
+          style="border:0"
+          allowfullscreen
+        ></iframe>
+
+        <iframe
+          v-if="!isDarkMode"
+          width="450"
+          height="450"
+          src="https://datastudio.google.com/embed/reporting/1eoUicGI1r9Bp8fceuao3vwB9a7K8-rGK/page/4hTf"
+          frameborder="0"
+          style="border:0"
+          allowfullscreen
+        ></iframe>
+
+        <iframe
+          v-if="isDarkMode"
+          width="450"
+          height="450"
+          src="https://datastudio.google.com/embed/reporting/1DkX7kx7rwqiqP0TdHYCGHGYiVNqNdXk0/page/4hTf"
+          frameborder="0"
+          style="border:0"
+          allowfullscreen
+        ></iframe>
+      </div>
     </div>
   </div>
 </template>
@@ -86,11 +112,11 @@ export default {
 
           this.series = [
             {
-              name: "active users",
+              name: "Active Users",
               data: activeUsers
             },
             {
-              name: "new users",
+              name: "New Users",
               data: newUsers
             }
           ];
@@ -106,6 +132,9 @@ export default {
       chartOptions: {
         colors: ["#14f1d9", "#7b42f6"],
         legend: {
+          height: 40,
+          fontSize: "18px",
+          horizontalAlign: "left",
           labels: {
             colors: [this.$store.getters.isDarkMode ? "white" : "black"]
           },
@@ -331,13 +360,6 @@ export default {
   width: 100%;
 }
 
-h1.dark {
-  @include heading-3($black);
-}
-h1.light {
-  @include heading-3($white);
-}
-
 .toggle {
   @include medium-text;
   color: $dark-gray;
@@ -359,6 +381,7 @@ h1.light {
   align-items: center;
   width: 33.33%;
   height: 100%;
+  font-weight: 600;
 }
 
 .days {
@@ -372,5 +395,17 @@ h1.light {
 }
 .months {
   @include toggle-settings;
+}
+
+.chart1 {
+  margin-top: 30px;
+  margin-bottom: 60px;
+}
+
+.gchart-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  padding-bottom: 120px;
 }
 </style>
